@@ -25,9 +25,6 @@ html {
 
 body {
   min-height: 100vh;
-  font-family: "Sora", "sans-serif";
-  display: flex;
-  place-items: center;
 }
 
 button {
