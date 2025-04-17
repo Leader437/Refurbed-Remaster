@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import refurbImg from "../../assets/refurb-process/refurb-image.webp"
+import refurbImg from "../../assets/refurb-process/refurb-image.webp";
+import BorderButton from "../BorderButton/BorderButton";
 
 const steps = [
   {
@@ -64,9 +65,7 @@ const RefurbProcess = () => {
       </div>
       <div className="flex justify-center mt-12">
         <Link to="/">
-        <button className="px-6 py-4 text-sm font-semibold text-custom-pri-lighter border-1 border-custom-pri-lighter rounded-lg hover:bg-purple-50 hover:text-custom-pri-light transition duration-200">
-          Learn more
-        </button>
+          <BorderButton>Learn more</BorderButton>
         </Link>
       </div>
     </section>

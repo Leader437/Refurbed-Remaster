@@ -5,6 +5,7 @@ import macbookImg from "../../assets/product-images/collection_macbook.webp";
 import iphoneImg from "../../assets/product-images/collection_iphone.webp";
 import watchImg from "../../assets/product-images/collection_watch.webp";
 import { Link } from "react-router-dom";
+import BorderButton from "../BorderButton/BorderButton";
 
 const topBrands = [
   {
@@ -68,9 +69,7 @@ const TopBrands = () => {
 
         <div className="flex justify-center">
           <Link to="/">
-            <button className="px-6 py-4 text-sm font-semibold text-custom-pri-light border-1 border-custom-pri-light rounded-lg hover:bg-purple-50 transition duration-200">
-              All Apple Products
-            </button>
+            <BorderButton>All Apple Products</BorderButton>
           </Link>
         </div>
       </div>

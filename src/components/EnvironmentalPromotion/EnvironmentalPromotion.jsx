@@ -5,6 +5,8 @@ import { GiMountains } from "react-icons/gi";
 import { ImBin } from "react-icons/im";
 import { MdCo2 } from "react-icons/md";
 import { useState } from "react";
+import BorderButton from "../BorderButton/BorderButton";
+import { Link } from "react-router-dom";
 
 const stats = [
   {
@@ -126,8 +128,8 @@ const EnvironmentalPromotion = () => {
               way, we can ensure a livable future together.
             </p>
           </div>
-          <div className="bg-[#F8F8F5] text-center px-4 py-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="text-center px-4 py-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-7xl mx-auto">
               {cards.map((card, index) => (
                 <div
                   key={index}
@@ -147,9 +149,9 @@ const EnvironmentalPromotion = () => {
               ))}
             </div>
 
-            <button className="mt-10 text-custom-pri-light border border-custom-text-custom-pri-light px-6 py-4 rounded-md font-semibold hover:bg-purple-50 transition">
-              Learn more
-            </button>
+            <Link to="/">
+              <BorderButton>Learn more</BorderButton>
+            </Link>
 
             <div className="mt-10 text-sm text-black space-y-1 max-w-4xl mx-auto">
               <p>
