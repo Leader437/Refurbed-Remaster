@@ -8,6 +8,8 @@ import Review from "../../components/Review/Review";
 import TopBrands from "../../components/TopBrands/TopBrands";
 import RefurbProcess from "../../components/RefurbProcess/RefurbProcess";
 import EnvironmentalPromotion from "../../components/EnvironmentalPromotion/EnvironmentalPromotion";
+import Faq from "../../components/Faq/Faq";
+import NewsLetter from "../../components/NewsLetter/NewsLetter";
 
 const Home = () => {
   return (
@@ -26,6 +28,8 @@ const Home = () => {
       <CtaBanner />
       <RefurbProcess />
       <EnvironmentalPromotion />
+      <Faq />
+      <NewsLetter />
     </>
   );
 };
