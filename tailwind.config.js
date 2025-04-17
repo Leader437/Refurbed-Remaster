@@ -16,6 +16,7 @@ export default {
       colors: {
         customPri: "#332D82",
         customPriLight: "#593BCE",
+        customPriLighter: "#DCC1F9",
         customBg1: "#FFFFFF",
         customBg2: "#F6F6FF",
         customAccent: "#036659",
@@ -37,7 +38,7 @@ export default {
       addComponents({
         ".container": {
           width: '100%',
-          maxWidth: '1200px',
+          maxWidth: '1250px',
           paddingRight: '16px',
           paddingLeft: '16px',
           [`@media (min-width: ${theme("screens.md")})`]: {

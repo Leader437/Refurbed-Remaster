@@ -4,7 +4,7 @@ import PromotionBanner from "../PromotionBanner/PromotionBanner"
 
 const Header = () => {
   return (
-    <div>
+    <div className="bg-custom-bg1">
         <Navbar />
         <QuickLinkBar />
         <PromotionBanner promotionVisible={true} />
