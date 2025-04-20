@@ -195,7 +195,7 @@ const Footer = () => {
                 <div className="flex items-center gap-1">
                   <img src={trustPilotLogo} alt="" className="w-26" />
                 </div>
-                <div>140444 Reviews</div>
+                <div>140446 Reviews</div>
               </div>
             </div>
           </div>
