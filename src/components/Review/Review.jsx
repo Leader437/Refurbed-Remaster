@@ -9,7 +9,7 @@ import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 const reviews = [
   {
     title: "Very good communication",
-    text: "Very good communication, product as described. There was a fault with the keyboard, but it was replaced quickly and without any hassle.",
+    text: "Very good communication, product as described. There was no fault with the product.",
     name: "Mrs Natalia Ui Fhaolain",
   },
   {
