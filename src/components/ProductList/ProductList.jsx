@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaTruck } from "react-icons/fa";
 import { BsChevronDown } from "react-icons/bs";
-import iphoneImg from "../../assets/product-images/iphone.webp";
+import { useSelector } from "react-redux";
 import BorderButton from "../BorderButton/BorderButton";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
+  const [products, setProducts] = useState([]);
   const [sortOption, setSortOption] = useState("Most Popular");
   const [visibleCount, setVisibleCount] = useState(8);
 
@@ -12,153 +14,11 @@ const ProductList = () => {
     setVisibleCount((prev) => prev + 4);
   };
 
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      name: "iPhone 13",
-      price: 332.99,
-      image: iphoneImg,
-      popularity: 3,
-      tag: "Bestseller",
-    },
-    {
-      id: 2,
-      name: "iPhone 15",
-      price: 595.99,
-      image: iphoneImg,
-      popularity: 2,
-    },
-    {
-      id: 3,
-      name: "iPhone 14",
-      price: 406.99,
-      image: iphoneImg,
-      popularity: 1,
-    },
-    {
-      id: 4,
-      name: "iPhone 14 Pro",
-      price: 569.99,
-      image: iphoneImg,
-      popularity: 4,
-    },
-    {
-      id: 5,
-      name: "iPhone SE (2020)",
-      price: 199.99,
-      image: iphoneImg,
-      popularity: 5,
-      tag: "Budget",
-    },
-    {
-      id: 6,
-      name: "iPhone 12 Mini",
-      price: 299.99,
-      image: iphoneImg,
-      popularity: 6,
-    },
-    {
-      id: 7,
-      name: "iPhone 11",
-      price: 249.99,
-      image: iphoneImg,
-      popularity: 7,
-      tag: "Popular",
-    },
-    {
-      id: 8,
-      name: "iPhone XR",
-      price: 219.99,
-      image: iphoneImg,
-      popularity: 8,
-    },
-    {
-      id: 9,
-      name: "iPhone XS",
-      price: 279.99,
-      image: iphoneImg,
-      popularity: 9,
-    },
-    {
-      id: 10,
-      name: "iPhone 12 Pro Max",
-      price: 699.99,
-      image: iphoneImg,
-      popularity: 10,
-      tag: "Premium",
-    },
-    {
-      id: 11,
-      name: "iPhone 13 Mini",
-      price: 349.99,
-      image: iphoneImg,
-      popularity: 11,
-    },
-    {
-      id: 12,
-      name: "iPhone 12",
-      price: 319.99,
-      image: iphoneImg,
-      popularity: 12,
-    },
-    {
-      id: 13,
-      name: "iPhone 11 Pro",
-      price: 399.99,
-      image: iphoneImg,
-      popularity: 13,
-    },
-    {
-      id: 14,
-      name: "iPhone SE",
-      price: 229.99,
-      image: iphoneImg,
-      popularity: 14,
-      tag: "Budget",
-    },
-    {
-      id: 15,
-      name: "iPhone X",
-      price: 259.99,
-      image: iphoneImg,
-      popularity: 15,
-    },
-    {
-      id: 16,
-      name: "iPhone 8 Plus",
-      price: 199.99,
-      image: iphoneImg,
-      popularity: 16,
-    },
-    {
-      id: 17,
-      name: "iPhone 7",
-      price: 149.99,
-      image: iphoneImg,
-      popularity: 17,
-    },
-    {
-      id: 18,
-      name: "iPhone 6S",
-      price: 99.99,
-      image: iphoneImg,
-      popularity: 18,
-    },
-    {
-      id: 19,
-      name: "iPhone 6",
-      price: 89.99,
-      image: iphoneImg,
-      popularity: 19,
-    },
-    {
-      id: 20,
-      name: "iPhone 5S",
-      price: 49.99,
-      image: iphoneImg,
-      popularity: 20,
-    },
-  ]);
+  const allProducts = useSelector((state) => state.products.allProducts);
+
+  useEffect(() => {
+    setProducts(allProducts);
+  }, [allProducts]);
 
   const sortedProducts = [...products].sort((a, b) => {
     if (sortOption === "Lowest Price") return a.price - b.price;
@@ -200,29 +60,31 @@ const ProductList = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {visibleProducts.map((product) => (
-          <div
-            key={product.id}
-            className="relative p-8 overflow-hidden min-h-72 flex flex-col"
-          >
-            {product.tag && (
-              <div className="absolute top-2 left-2 p-1 bg-green-600 text-white text-xs font-normal rounded-sm z-10">
-                {product.tag}
+          <Link to={`/p/${product.id}`} key={product.id}>
+            <div
+              key={product.id}
+              className="relative p-8 overflow-hidden min-h-72 flex flex-col"
+            >
+              {product.tag && (
+                <div className="absolute top-2 left-2 p-1 bg-green-600 text-white text-xs font-normal rounded-sm z-10">
+                  {product.tag}
+                </div>
+              )}
+              <div className="flex-grow flex items-center justify-center">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full object-contain h-48"
+                />
               </div>
-            )}
-            <div className="flex-grow flex items-center justify-center">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full object-contain h-48"
-              />
+              <div className="p-4 text-left">
+                <h3 className="text-lg font-medium">{product.name}</h3>
+                <p className="text-green-700 font-semibold text-md mt-1">
+                  €{product.currentPrice.toFixed(2)}
+                </p>
+              </div>
             </div>
-            <div className="p-4 text-left">
-              <h3 className="text-lg font-medium">{product.name}</h3>
-              <p className="text-green-700 font-semibold text-md mt-1">
-                €{product.price.toFixed(2)}
-              </p>
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
       {visibleCount < sortedProducts.length && (

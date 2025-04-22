@@ -31,8 +31,7 @@ const QuickLinkBar = () => {
             <span className="hidden md:block">All categories</span>
           </button>
           <div className="relative overflow-x-auto">
-            <div class="pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-custom-pri to-transparent z-10"></div>
-            <div class="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-custom-pri to-transparent z-10"></div>
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-custom-pri to-transparent z-10"></div>
             <div className="relative flex items-center px-10 py-3 gap-6 font-light overflow-x-auto quicklink-scrollbar-hide">
               <Link to="/" className="hover:text-custom-grey-text">
                 Smartphones
