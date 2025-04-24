@@ -11,6 +11,7 @@ import { fetchAllProducts } from "./features/products/fetchProduct";
 import ProductDetails from "./pages/productDetails/productDetails";
 import Cart from "./pages/Cart/Cart";
 import { Toaster } from "sonner";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/p/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       {!shouldHideHeaderFooter && <Footer />}
     </>

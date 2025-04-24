@@ -90,7 +90,7 @@ const QuickLinkBar = () => {
           </div>
 
           <ul className="px-6 pb-6 space-y-6 overflow-y-auto max-h-[calc(100vh-60px)]">
-            <li className="flex justify-between items-center font-semibold text-[#362A84]">
+            {/* <li className="flex justify-between items-center font-semibold text-[#362A84]">
               <span className="flex gap-3 items-center">
                 <FaBolt /> Electronics
               </span>
@@ -122,20 +122,18 @@ const QuickLinkBar = () => {
             </li>
             <li className="flex gap-3 items-center font-semibold text-[#362A84]">
               <FaMoneyBill /> Sell
-            </li>
+            </li> */}
 
-            <div className="pt-6 border-t">
-              <p className="font-semibold text-[#362A84]">All categories</p>
+            <div className="pt-6">
+              <p className="text-lg font-semibold px-2 text-[#362A84]">All categories</p>
               <ul className="space-y-4 pt-4">
-                <li className="bg-purple-100 px-2 py-1 rounded text-[#362A84]">
-                  Phones & Smartphones
-                </li>
-                <li className="text-[#362A84]">Smartphone Accessories</li>
-                <li className="text-[#362A84]">iPhones</li>
-                <li className="text-[#362A84]">Samsung</li>
-                <li className="text-[#362A84]">Laptops</li>
-                <li className="text-[#362A84]">Computer Accessories</li>
-                <li className="text-[#362A84]">iPads</li>
+                <Link to="/"> <li className="hover:bg-purple-100 px-2 py-2 rounded text-custom-pri">Phones & Smartphones</li></Link>
+                <Link to="/"> <li className="hover:bg-purple-100 px-2 py-2 rounded text-custom-pri">Smartphone Accessories</li></Link>
+                <Link to="/"> <li className="hover:bg-purple-100 px-2 py-2 rounded text-custom-pri">iPhones</li></Link>
+                <Link to="/"> <li className="hover:bg-purple-100 px-2 py-2 rounded text-custom-pri">Samsung</li></Link>
+                <Link to="/"> <li className="hover:bg-purple-100 px-2 py-2 rounded text-custom-pri">Laptops</li></Link>
+                <Link to="/"> <li className="hover:bg-purple-100 px-2 py-2 rounded text-custom-pri">Computer Accessories</li></Link>
+                <Link to="/"> <li className="hover:bg-purple-100 px-2 py-2 rounded text-custom-pri">iPads</li></Link>
               </ul>
             </div>
           </ul>

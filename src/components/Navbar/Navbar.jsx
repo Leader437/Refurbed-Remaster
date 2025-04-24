@@ -19,7 +19,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-6 text-custom-pri font-normal text-sm">
-            <Link to="/products" className="hover:text-custom-pri-light">product</Link>
+            <Link to="/products" className="hover:text-custom-pri-light">products</Link>
             <Link to="/" className="hover:text-custom-pri-light">Sell</Link>
             <Link to="/" className="hover:text-custom-pri-light">Help</Link>
           </div>
