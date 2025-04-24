@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setProducts } from "./features/products/productSlice";
 import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Products from "./pages/Products/Products";
-import { fetchAllProducts } from "./features/products/fetchProduct"; 
+import { fetchAllProducts } from "./features/products/fetchProduct";
 import ProductDetails from "./pages/productDetails/productDetails";
+import Cart from "./pages/Cart/Cart";
+import { Toaster } from "sonner";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,15 +28,23 @@ function App() {
     getData();
   }, [dispatch]);
 
+  const location = useLocation();
+  const hideHeaderFooterRoutes = ["/cart"];
+  const shouldHideHeaderFooter = hideHeaderFooterRoutes.includes(
+    location.pathname
+  );
+
   return (
     <>
-      <Header />
+      <Toaster position="bottom-right" />
+      {!shouldHideHeaderFooter && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/p/:id" element={<ProductDetails/>} />
+        <Route path="/p/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
-      <Footer />
+      {!shouldHideHeaderFooter && <Footer />}
     </>
   );
 }

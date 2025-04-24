@@ -1,12 +1,15 @@
 import { CiShoppingCart, CiUser, CiSearch } from "react-icons/ci"
 import logo from "../../assets/logos/refurbed-logo.svg"
 import { Link } from "react-router-dom"
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const cartData = useSelector((state) => state.cart.cartData);
+  const totalQty = cartData.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <nav className="container">
       <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-7 py-4">
-        
         {/* Logo and Links */}
         <div className="flex justify-between md:justify-start w-full md:max-w-fit gap-10">
           <div className="flex items-center text-[#2E2A85] font-bold text-2xl">
@@ -39,9 +42,16 @@ const Navbar = () => {
             <Link to="/">
               <CiUser className="text-xl cursor-pointer hover:text-custom-pri-light" />
             </Link>
-            <Link to="/">
-              <CiShoppingCart className="text-xl cursor-pointer hover:text-custom-pri-light" />
-            </Link>
+            <div className="relative">
+              <Link to="/cart">
+                <CiShoppingCart className="text-xl cursor-pointer hover:text-custom-pri-light" />
+                {totalQty > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-custom-pri text-white text-[8px] min-w-[12px] h-[12px] flex items-center justify-center rounded-full px-1 font-bold">
+                    {totalQty}
+                  </span>
+                )}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

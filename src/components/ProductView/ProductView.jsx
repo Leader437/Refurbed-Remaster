@@ -11,6 +11,7 @@ import { MdNfc } from "react-icons/md";
 import { GiPlasticDuck } from "react-icons/gi";
 import { BsBoxSeam } from "react-icons/bs";
 import { PiCreditCardBold } from "react-icons/pi";
+import { toast } from "sonner";
 
 import visaLogo from "../../assets/payment-logos/visa_white.svg";
 import mastercardLogo from "../../assets/payment-logos/mastercard.svg";
@@ -19,10 +20,34 @@ import googlePayLogo from "../../assets/payment-logos/pay_google_pay.svg";
 import paypalLogo from "../../assets/payment-logos/pay_paypal_logo.svg";
 import klarnaLogo from "../../assets/payment-logos/klarna.svg";
 
+import { useDispatch, useSelector } from "react-redux";
+import { setCart } from "../../features/cart/cartSlice";
+
 const ProductView = ({ product }) => {
+  const dispatch = useDispatch();
+  const cartData = useSelector((state) => state.cart.cartData);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleAddToCart = (addProductId) => {
+    const existingItem = cartData.find((item) => item.id === addProductId);
+
+    let updatedCart;
+    if (existingItem) {
+      updatedCart = cartData.map((item) =>
+        item.id === addProductId
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    } else {
+      updatedCart = [...cartData, { id: addProductId, quantity: 1 }];
+    }
+
+    dispatch(setCart(updatedCart));
+    toast.success("Product added to cart!");
+  };
 
   return (
     <>
@@ -43,9 +68,7 @@ const ProductView = ({ product }) => {
               <h1 className="text-2xl md:text-3xl font-semibold mb-1">
                 {product.name}
               </h1>
-              <p className="text-gray-500 mb-2">
-                Category: {product.category}
-              </p>
+              <p className="text-gray-500 mb-2">Category: {product.category}</p>
               <p className="text-green-600 font-semibold text-sm mb-4">
                 ⭐⭐⭐⭐⭐ (140708)
               </p>
@@ -135,7 +158,10 @@ const ProductView = ({ product }) => {
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <button className="bg-custom-pri-light text-custom-light-text py-2 px-4 rounded-md w-full sm:w-auto">
+                <button
+                  onClick={() => handleAddToCart(product.id)}
+                  className="bg-custom-pri-light text-custom-light-text py-2 px-4 rounded-md w-full sm:w-auto"
+                >
                   Add to cart
                 </button>
                 <button className="border-1 border-custom-pri-light text-custom-pri-light py-2 px-4 rounded-md w-full sm:w-auto">

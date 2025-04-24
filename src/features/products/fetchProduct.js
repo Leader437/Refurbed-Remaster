@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import iphoneImg from "../../assets/product-images/iphone.webp";
 
 export const fetchAllProducts = () => {
