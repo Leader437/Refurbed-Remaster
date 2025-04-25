@@ -1,52 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
-import iphoneImg from "../../assets/recommended-images/iphone.png";
 import { Link } from "react-router-dom";
-
-const products = [
-  {
-    name: "Lenovo ThinkPad T480 | i5-8350U | 14”",
-    price: "€289.99",
-    img: iphoneImg,
-  },
-  {
-    name: "Apple MacBook Air 2020 | 13.3” | M1",
-    price: "€549.99",
-    img: iphoneImg,
-  },
-  {
-    name: "Samsung Galaxy S22 5G",
-    price: "€252.99",
-    img: iphoneImg,
-  },
-  {
-    name: "iPad Pro 6 (2022) | 12.9″",
-    price: "€785.99",
-    img: iphoneImg,
-  },
-  {
-    name: "iPhone 15",
-    price: "€599.00",
-    img: iphoneImg,
-  },
-  {
-    name: "Samsung Galaxy S22 5G",
-    price: "€252.99",
-    img: iphoneImg,
-  },
-  {
-    name: "Samsung Galaxy S22 5G",
-    price: "€252.99",
-    img: iphoneImg,
-  },
-];
+import { useSelector } from "react-redux";
+import ProductCard from "../ProductCard/ProductCard";
 
 const RecommendedForYou = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const allProducts = useSelector((state) => state.products.allProducts);
+
+  const [recommendedProducts, setRecommendedProducts] = useState([]);
+
+  useEffect(() => {
+    if (allProducts && allProducts.length > 0) {
+      const shuffled = [...allProducts].sort(() => 0.5 - Math.random());
+      setRecommendedProducts(shuffled.slice(0, 8));
+    }
+  }, [allProducts]);
 
   return (
     <section className="bg-custom-bg2">
@@ -88,22 +61,10 @@ const RecommendedForYou = () => {
             }}
             className="relative"
           >
-            {products.map((product, index) => (
+            {recommendedProducts.map((product, index) => (
               <SwiperSlide key={index}>
-                <Link to="/" className="block group">
-                  <div className="bg-white w-full h-48 sm:h-64 flex items-center justify-center overflow-hidden">
-                    <img
-                      src={product.img}
-                      alt={product.name}
-                      className="h-32 sm:h-46 object-contain group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  <p className="text-sm text-custom-dark-text font-medium mt-2 line-clamp-2 h-[40px]">
-                    {product.name}
-                  </p>
-                  <p className="text-custom-accent font-semibold mt-1 text-sm">
-                    {product.price}
-                  </p>
+                <Link to={`/p/${product.id}`} className="block group">
+                  <ProductCard product={product} />
                 </Link>
               </SwiperSlide>
             ))}

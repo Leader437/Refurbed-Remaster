@@ -1,13 +1,5 @@
 import { useEffect } from "react";
-import {
-  FaWifi,
-  FaBluetooth,
-  FaLeaf,
-  FaUndo,
-  FaCheckCircle,
-  FaLock,
-} from "react-icons/fa";
-import { MdNfc } from "react-icons/md";
+import { FaLeaf, FaUndo, FaCheckCircle, FaLock } from "react-icons/fa";
 import { GiPlasticDuck } from "react-icons/gi";
 import { BsBoxSeam } from "react-icons/bs";
 import { PiCreditCardBold } from "react-icons/pi";
@@ -78,20 +70,6 @@ const ProductView = ({ product }) => {
                   <label className="text-gray-500 text-sm">Colour</label>
                   <div className="font-medium">{product.color}</div>
                 </div>
-                {/* <div>
-              <label className="text-gray-500 text-sm">Connectivity</label>
-              <div className="flex items-center gap-2 font-medium">
-                <FaWifi /> <FaBluetooth /> <MdNfc />
-              </div>
-            </div> */}
-                {/* <div>
-              <label className="text-gray-500 text-sm">Wristband</label>
-              <div className="font-medium">Sports bracelet</div>
-            </div> */}
-                {/* <div>
-              <label className="text-gray-500 text-sm">Wristband Colour</label>
-              <div className="font-medium">product</div>
-            </div> */}
                 <div>
                   <label className="text-gray-500 text-sm">Material</label>
                   <div className="flex items-center gap-2 font-medium">
@@ -124,9 +102,6 @@ const ProductView = ({ product }) => {
                   )
                 </span>
               </div>
-              {/* <p className="text-sm text-purple-700 underline cursor-pointer mb-4">
-            Compare with similar products
-          </p> */}
 
               {/* Payment and Delivery */}
               <div className="text-sm mb-4">

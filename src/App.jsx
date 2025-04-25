@@ -12,6 +12,7 @@ import ProductDetails from "./pages/productDetails/productDetails";
 import Cart from "./pages/Cart/Cart";
 import { Toaster } from "sonner";
 import Contact from "./pages/Contact/Contact";
+import Categories from "./pages/Categories/Categories";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ function App() {
         <Route path="/p/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/c/:category" element={<Categories/>} />
       </Routes>
       {!shouldHideHeaderFooter && <Footer />}
     </>

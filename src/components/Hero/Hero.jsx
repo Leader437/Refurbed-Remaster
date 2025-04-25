@@ -9,8 +9,9 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { TbTimeDuration30 } from "react-icons/tb";
 import { GiReturnArrow, GiPineTree } from "react-icons/gi";
 import tabletImg from "../../assets/product-images/tablets.webp";
+import { Link } from "react-router-dom";
 
-const products = [
+const categories = [
   {
     name: "Desktops",
     img: tabletImg,
@@ -37,10 +38,6 @@ const products = [
   },
   {
     name: "Consoles",
-    img: tabletImg,
-  },
-  {
-    name: "Appliances",
     img: tabletImg,
   },
   {
@@ -72,18 +69,20 @@ const Hero = () => {
           }}
           modules={[Navigation]}
         >
-          {products.map((product, index) => (
+          {categories.map((cat, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white text-black rounded-xl p-5 flex flex-col items-center justify-center shadow-md">
-                <img
-                  src={product.img}
-                  alt={product.name}
-                  className="w-28 h-28 object-contain mb-4"
-                />
-                <p className="font-medium text-base text-center">
-                  {product.name}
-                </p>
-              </div>
+              <Link to={`/c/${cat.name}`}>
+                <div className="bg-white text-black rounded-xl p-5 flex flex-col items-center justify-center shadow-md">
+                  <img
+                    src={cat.img}
+                    alt={cat.name}
+                    className="w-28 h-28 object-contain mb-4"
+                  />
+                  <p className="font-medium text-base text-center">
+                    {cat.name}
+                  </p>
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

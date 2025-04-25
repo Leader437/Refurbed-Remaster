@@ -530,6 +530,71 @@ export const fetchAllProducts = () => {
             popularity: 6,
             category: "Printers",
             description: "The Brother Inkjet is a versatile all-in-one printer for home use. It offers reliable printing, scanning, and copying with affordable ink and wireless features."
+        },
+        {
+            id: 41,
+            name: "Apple Magic Mouse 3",
+            color: "White",
+            condition: "Brand New",
+            oldPrice: 99.99,
+            currentPrice: 79.99,
+            material: "Plastic",
+            image: iphoneImg,
+            popularity: 12,
+            category: "Apple",
+            description: "The Apple Magic Mouse 3 offers a sleek, wireless design with multi-touch surface for intuitive navigation. Perfect for Mac users seeking seamless performance and elegant style in their workspace."
+        },
+        {
+            id: 42,
+            name: "Apple HomePod Mini",
+            color: "Space Grey",
+            condition: "Excellent",
+            oldPrice: 129.99,
+            currentPrice: 99.99,
+            material: "Plastic",
+            image: iphoneImg,
+            popularity: 18,
+            category: "Apple",
+            description: "The Apple HomePod Mini delivers rich 360-degree audio in a compact design. With Siri integration and smart home controls, it’s the perfect addition to any Apple ecosystem household."
+        },
+        {
+            id: 43,
+            name: "Apple Watch Series 7",
+            color: "Blue",
+            condition: "Good",
+            oldPrice: 399.99,
+            currentPrice: 299.99,
+            material: "Aluminum",
+            image: iphoneImg,
+            popularity: 25,
+            category: "Apple",
+            description: "Stay connected and healthy with the Apple Watch Series 7. Featuring a larger display, advanced health sensors, and fast charging, it’s ideal for fitness tracking and daily productivity."
+        },
+        {
+            id: 44,
+            name: "Apple AirTag",
+            color: "White",
+            condition: "Brand New",
+            oldPrice: 39.99,
+            currentPrice: 29.99,
+            material: "Plastic",
+            image: iphoneImg,
+            popularity: 7,
+            category: "Apple",
+            description: "Keep track of your belongings with Apple AirTag. Its precision finding, easy setup, and seamless integration with the Find My app make it a must-have for Apple users on the go."
+        },
+        {
+            id: 45,
+            name: "Apple Magic Keyboard",
+            color: "Silver",
+            condition: "Excellent",
+            oldPrice: 149.99,
+            currentPrice: 119.99,
+            material: "Aluminum",
+            image: iphoneImg,
+            popularity: 15,
+            category: "Apple",
+            description: "The Apple Magic Keyboard provides a comfortable, precise typing experience with a sleek, rechargeable design. Perfect for Mac and iPad users who value portability and Apple’s signature style."
         }
     ];
 

@@ -12,22 +12,22 @@ const topBrands = [
     label: "Best of Apple",
     img: bestImg,
     span: "col-span-3 lg:col-span-2",
-    link: "/",
+    link: "/c/apple",
   },
   {
     label: "MacBooks",
     img: macbookImg,
-    link: "/",
+    link: "/c/apple",
   },
   {
     label: "iPhones",
     img: iphoneImg,
-    link: "/",
+    link: "/c/apple",
   },
   {
     label: "Apple Watches",
     img: watchImg,
-    link: "/",
+    link: "/c/apple",
   },
 ];
 
@@ -68,7 +68,7 @@ const TopBrands = () => {
         </div>
 
         <div className="flex justify-center">
-          <Link to="/">
+          <Link to="/c/apple">
             <BorderButton>All Apple Products</BorderButton>
           </Link>
         </div>
