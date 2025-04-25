@@ -1,13 +1,17 @@
-import React from "react";
+import { useEffect } from "react";
 import { FaRegNewspaper } from "react-icons/fa6";
+import { FadeUpAll } from "../../animations/gsapAnimations";
 
 const NewsLetter = () => {
+  useEffect(() => {
+    FadeUpAll(".fade-up");
+  }, []);
   return (
     <div className="bg-custom-pri">
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between text-white px-6 py-10 gap-8 lg:gap-16">
           {/* Left Side */}
-          <div className="flex items-start gap-4 max-w-2xl w-full">
+          <div className="fade-up flex items-start gap-4 max-w-2xl w-full">
             {/* Placeholder for icon */}
             <FaRegNewspaper className="hidden lg:block text-5xl" />
             <div>
@@ -19,7 +23,7 @@ const NewsLetter = () => {
           </div>
 
           {/* Right Side */}
-          <div className="w-full">
+          <div className="fade-up w-full">
             <input
               type="email"
               placeholder="Enter e-mail"

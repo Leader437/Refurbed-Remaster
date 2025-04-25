@@ -1,12 +1,18 @@
-import React from "react";
+import { useEffect } from "react";
 import mobilesImg from "../../assets/buyback_banner.webp";
+import { FadeUpAll } from "../../animations/gsapAnimations";
+
 
 const CtaBanner = () => {
+  useEffect(() => {
+    FadeUpAll(".fade-up")
+  }, [])
+
   return (
     <div className="bg-custom-bg1">
       <div className="container pb-14">
         <div className="bg-custom-pri-light rounded-lg py-6 lg:py-0 px-4 md:px-12 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-0">
-          <div className="text-white max-w-xl">
+          <div className="fade-up text-white max-w-xl">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">
               Sell your phone
             </h1>
@@ -18,7 +24,7 @@ const CtaBanner = () => {
             </button>
           </div>
 
-          <div className="w-full max-w-[280px] md:max-w-full md:w-[300px] lg:w-[400px]">
+          <div className="fade-up w-full max-w-[280px] md:max-w-full md:w-[300px] lg:w-[400px]">
             <img
               src={mobilesImg}
               alt="Phones"

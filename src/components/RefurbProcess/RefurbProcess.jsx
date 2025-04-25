@@ -1,7 +1,9 @@
-import React from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import refurbImg from "../../assets/refurb-process/refurb-image.webp";
 import BorderButton from "../BorderButton/BorderButton";
+import { FadeUpAll } from "../../animations/gsapAnimations";
+
 
 const steps = [
   {
@@ -32,13 +34,17 @@ const steps = [
 ];
 
 const RefurbProcess = () => {
+    useEffect(() => {
+      FadeUpAll(".fade-up")
+    }, [])
+
   return (
     <section className="container bg-transparent pt-16 md:pt-24 pb-8 md:pb-12">
       <div className="bg-[rgba(246,246,250,0.9)] mx-auto px-4 py-8 rounded-lg md:text-center">
-        <h2 className="text-xl md:text-2xl font-semibold mb-4">
+        <h2 className="fade-up text-xl md:text-2xl font-semibold mb-4">
           The refurbed Process
         </h2>
-        <p className="text-custom-dark-text text-md md:text-lg md:max-w-[80%] mx-auto mb-12">
+        <p className="fade-up text-custom-dark-text text-md md:text-lg md:max-w-[80%] mx-auto mb-12">
           refurbed products undergo an up-to 40 step process until they are like
           new again – we have highlighted 5 key steps below:
         </p>
@@ -46,7 +52,7 @@ const RefurbProcess = () => {
         {/* Step Grid */}
         <div className="flex flex-wrap gap-8 xl:gap-12 justify-center items-center">
           {steps.map((step) => (
-            <div key={step.id} className="flex flex-col items-center">
+            <div key={step.id} className="fade-up flex flex-col items-center">
               <div className="w-28 h-28 md:w-36 md:h-36 xl:w-38 xl:h-38 rounded-full overflow-hidden shadow-lg mb-4">
                 <img
                   src={step.img}

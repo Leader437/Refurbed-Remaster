@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { FadeUpAll } from "../../animations/gsapAnimations";
+
 
 const faqs = [
   {
@@ -37,15 +39,22 @@ const Faq = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  useEffect(() => {
+    FadeUpAll(".fade-up");
+  }, []);
+
   return (
     <section className="bg-custom-bg1">
       <div className="container py-12">
-        <h2 className="text-xl md:text-2xl font-semibold text-custom-dark-text mb-8">
+        <h2 className="fade-up text-xl md:text-2xl font-semibold text-custom-dark-text mb-8">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-custom-grey-text text-custom-dark-text pb-4">
+            <div
+              key={index}
+              className="fade-up border-b border-custom-grey-text text-custom-dark-text pb-4"
+            >
               <button
                 className="flex items-center gap-3 w-full text-left text-lg font-semibold focus:outline-none"
                 onClick={() => toggleFAQ(index)}

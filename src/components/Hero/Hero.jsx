@@ -1,4 +1,4 @@
-import React from "react";
+import {useEffect} from "react";
 import "./Hero.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -10,6 +10,8 @@ import { TbTimeDuration30 } from "react-icons/tb";
 import { GiReturnArrow, GiPineTree } from "react-icons/gi";
 import tabletImg from "../../assets/product-images/tablets.webp";
 import { Link } from "react-router-dom";
+import { FadeUpAll } from "../../animations/gsapAnimations";
+
 
 const categories = [
   {
@@ -47,6 +49,10 @@ const categories = [
 ];
 
 const Hero = () => {
+  useEffect(() => {
+    FadeUpAll(".fade-up")
+  }, [])
+
   return (
     <div className="bg-green-900 pt-10 w-full text-white hero-main">
       <h2 className="container text-center text-2xl md:text-3xl font-semibold mb-10">
@@ -72,7 +78,7 @@ const Hero = () => {
           {categories.map((cat, index) => (
             <SwiperSlide key={index}>
               <Link to={`/c/${cat.name}`}>
-                <div className="bg-white text-black rounded-xl p-5 flex flex-col items-center justify-center shadow-md">
+                <div className="fade-up bg-white text-black rounded-xl p-5 flex flex-col items-center justify-center shadow-md">
                   <img
                     src={cat.img}
                     alt={cat.name}

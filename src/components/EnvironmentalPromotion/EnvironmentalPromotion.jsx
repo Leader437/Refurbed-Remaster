@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./EnvironmentalPromotion.css";
 import { FaHandHoldingWater, FaTree, FaRecycle } from "react-icons/fa";
 import { PiCloudCheckDuotone } from "react-icons/pi";
@@ -7,6 +8,8 @@ import { MdCo2 } from "react-icons/md";
 import { useState } from "react";
 import BorderButton from "../BorderButton/BorderButton";
 import { Link } from "react-router-dom";
+import { FadeUpAll } from "../../animations/gsapAnimations";
+
 
 const stats = [
   {
@@ -63,6 +66,10 @@ const cards = [
 const EnvironmentalPromotion = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
+      useEffect(() => {
+        FadeUpAll(".fade-up")
+      }, [])
+
   return (
     <section className="bg-custom-bg1 py-12">
       <div className="container">
@@ -72,7 +79,7 @@ const EnvironmentalPromotion = () => {
               {stats.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center bg-white rounded-full p-2 md:p-3 shadow-sm"
+                  className="fade-up flex items-center bg-white rounded-full p-2 md:p-3 shadow-sm"
                 >
                   <div className="flex-shrink-0 h-full aspect-square bg-green-100 flex justify-center items-center text-3xl text-custom-accent rounded-full shadow-md p-4">
                     {item.icon}
@@ -109,11 +116,11 @@ const EnvironmentalPromotion = () => {
             </div>
           </div>
           <div className="text-center px-4 py-10">
-            <h2 className="text-xl md:text-2xl font-semibold text-black mb-6">
+            <h2 className="fade-up text-xl md:text-2xl font-semibold text-black mb-6">
               Promotion of environmental protection projects
             </h2>
 
-            <p className="max-w-[85%] mx-auto text-sm md:text-base text-black leading-relaxed">
+            <p className="fade-up max-w-[85%] mx-auto text-sm md:text-base text-black leading-relaxed">
               Refurbished products are more sustainable than new ones – this is{" "}
               <a
                 href="#"
@@ -133,7 +140,7 @@ const EnvironmentalPromotion = () => {
               {cards.map((card, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-lg shadow-sm relative pt-10 pb-6 px-6"
+                  className="fade-up bg-white rounded-lg shadow-sm relative pt-10 pb-6 px-6"
                 >
                   <div className="absolute top-2 left-1/2 z-10 -translate-x-1/2 text-custom-accent bg-[#CFF1D5] shadow rounded-full w-12 h-12 flex items-center justify-center">
                     {card.icon}
@@ -153,7 +160,7 @@ const EnvironmentalPromotion = () => {
               <BorderButton>Learn more</BorderButton>
             </Link>
 
-            <div className="mt-10 text-sm text-black space-y-1 max-w-4xl mx-auto">
+            <div className="fade-up mt-10 text-sm text-black space-y-1 max-w-4xl mx-auto">
               <p>
                 *Savings compared to new purchase based on the environmental
                 impacts through our{" "}

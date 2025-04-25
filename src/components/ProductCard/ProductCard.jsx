@@ -1,10 +1,15 @@
-import React from "react";
+import { useEffect } from "react";
+import { FadeUpAll } from "../../animations/gsapAnimations";
 
 const ProductCard = ({ product }) => {
+  useEffect(() => {
+    FadeUpAll(".fade-up");
+  }, []);
+
   return (
     <div
       key={product.id}
-      className="relative p-8 overflow-hidden min-h-72 flex flex-col"
+      className="fade-up relative p-8 overflow-hidden min-h-72 flex flex-col"
     >
       {product.tag && (
         <div className="absolute top-2 left-2 p-1 bg-green-600 text-white text-xs font-normal rounded-sm z-10">

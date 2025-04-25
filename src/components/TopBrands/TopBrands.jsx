@@ -1,4 +1,4 @@
-import React from "react";
+import {useEffect} from "react";
 import { FaApple } from "react-icons/fa";
 import bestImg from "../../assets/product-images/collection_best.webp";
 import macbookImg from "../../assets/product-images/collection_macbook.webp";
@@ -6,6 +6,7 @@ import iphoneImg from "../../assets/product-images/collection_iphone.webp";
 import watchImg from "../../assets/product-images/collection_watch.webp";
 import { Link } from "react-router-dom";
 import BorderButton from "../BorderButton/BorderButton";
+import { FadeUpAll } from "../../animations/gsapAnimations";
 
 const topBrands = [
   {
@@ -32,10 +33,14 @@ const topBrands = [
 ];
 
 const TopBrands = () => {
+    useEffect(() => {
+      FadeUpAll(".fade-up")
+    }, [])
+
   return (
     <section className="py-12 bg-custom-bg1">
       <div className="container">
-        <h2 className="text-xl md:text-2xl font-semibold mb-8">
+        <h2 className="fade-up text-xl md:text-2xl font-semibold mb-8">
           Our Top Brands: Apple
         </h2>
 
@@ -44,7 +49,7 @@ const TopBrands = () => {
             <Link
               to={brand.link}
               key={index}
-              className={`rounded-lg overflow-hidden shadow-sm bg-custom-bg2 ${
+              className={`fade-up rounded-lg overflow-hidden shadow-sm bg-custom-bg2 ${
                 brand.span || ""
               }`}
             >

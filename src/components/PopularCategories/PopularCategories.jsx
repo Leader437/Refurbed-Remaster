@@ -62,7 +62,7 @@ const PopularCategories = () => {
         <div className="md:col-span-3 grid grid-cols-2 sm:grid-cols-4 gap-6">
           {popularCategories.map((item, index) => (
             <Link
-              to="/"
+              to={`/c/${item.name.toLowerCase()}`}
               key={index}
               className="border border-gray-200 rounded-xl flex flex-col items-center justify-center p-4 hover:shadow transition"
             >

@@ -1,19 +1,24 @@
-import React from "react";
+import { useEffect } from "react";
 import fitnessImg from "../../assets/highlight-images/fitness.webp";
 import kitchenImg from "../../assets/highlight-images/kitchen.webp";
 import { Link } from "react-router-dom";
+import { FadeUpAll } from "../../animations/gsapAnimations";
 
 const OurHighlights = () => {
+  useEffect(() => {
+    FadeUpAll(".fade-up");
+  }, []);
+
   return (
     <section className="py-10 bg-custom-bg1">
       <div className="container">
-        <h2 className="text-xl md:text-2xl font-semibold mb-6">
+        <h2 className="fade-up text-xl md:text-2xl font-semibold mb-6">
           Our highlights
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1 */}
-          <div className="bg-white rounded-xl shadow-md overflow-hidden">
+          <div className="fade-up bg-white rounded-xl shadow-md overflow-hidden">
             <img
               src={fitnessImg}
               alt="Fitness"
@@ -40,7 +45,7 @@ const OurHighlights = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white rounded-xl shadow-md overflow-hidden">
+          <div className="fade-up bg-white rounded-xl shadow-md overflow-hidden">
             <img
               src={kitchenImg}
               alt="Kitchen"

@@ -7,6 +7,7 @@ import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProductCard from "../ProductCard/ProductCard";
+import { FadeUpAll } from "../../animations/gsapAnimations";
 
 const RecommendedForYou = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -19,13 +20,14 @@ const RecommendedForYou = () => {
       const shuffled = [...allProducts].sort(() => 0.5 - Math.random());
       setRecommendedProducts(shuffled.slice(0, 8));
     }
+    FadeUpAll(".fade-up");
   }, [allProducts]);
 
   return (
     <section className="bg-custom-bg2">
       <div className="container py-10 relative w-full">
         <div className="flex items-center justify-between mb-6 gap-3 max-w-fit relative">
-          <h2 className="text-xl md:text-2xl font-semibold text-custom-dark-text">
+          <h2 className="fade-up text-xl md:text-2xl font-semibold text-custom-dark-text">
             Recommended for you
           </h2>
           <div

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -5,6 +6,7 @@ import "swiper/css/navigation";
 import trustPilotStars from "../../assets/bcorp.webp";
 import trustPilotLogo from "../../assets/logos/trustpilot_logo.webp";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+import { FadeUpAll } from "../../animations/gsapAnimations";
 
 const reviews = [
   {
@@ -55,11 +57,15 @@ const reviews = [
 ];
 
 const Review = () => {
+  useEffect(() => {
+    FadeUpAll(".fade-up");
+  }, []);
+
   return (
     <section className="bg-custom-bg1 py-10">
       <div className="container">
         <div className="bg-custom-bg2 px-4 md:px-10 lg:px-16 py-12 rounded-lg shadow-[0px_5px_8px_rgba(0,0,0,0.3)]">
-          <div className="flex flex-col lg:flex-row justify-between items-center mb-6">
+          <div className="fade-up flex flex-col lg:flex-row justify-between items-center mb-6">
             <div className="hidden lg:block">
               <h2 className="text-xl md:text-2xl font-semibold text-custom-dark-text">
                 Reviews for refurbed in Ireland
@@ -108,7 +114,7 @@ const Review = () => {
             >
               {reviews.map((review, index) => (
                 <SwiperSlide key={index} className="py-2">
-                  <div className="bg-white p-6 rounded-sm shadow-md h-56 sm:h-52">
+                  <div className="fade-up bg-white p-6 rounded-sm shadow-md h-56 sm:h-52">
                     <div className="flex items-center space-x-2 mb-2">
                       <img src={trustPilotStars} alt="Rating" className="h-5" />
                       <span className="text-gray-600 text-sm font-medium">
