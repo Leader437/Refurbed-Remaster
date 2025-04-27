@@ -53,13 +53,13 @@ const RecommendedForYou = () => {
               nextEl: ".custom-next2",
               prevEl: ".custom-prev2",
             }}
-            slidesPerView={2}
+            slidesPerView={1}
             spaceBetween={20}
             breakpoints={{
-              640: { slidesPerView: 3 },
-              768: { slidesPerView: 3.2 },
-              1024: { slidesPerView: 3.5 },
-              1280: { slidesPerView: 4.5 },
+              480: { slidesPerView: 2 },
+              768: { slidesPerView: 3 },
+              1024: { slidesPerView: 3 },
+              1280: { slidesPerView: 4 },
             }}
             className="relative"
           >

@@ -13,6 +13,8 @@ import Cart from "./pages/Cart/Cart";
 import { Toaster } from "sonner";
 import Contact from "./pages/Contact/Contact";
 import Categories from "./pages/Categories/Categories";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Signup/Signup";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,7 +33,7 @@ function App() {
   }, [dispatch]);
 
   const location = useLocation();
-  const hideHeaderFooterRoutes = ["/cart"];
+  const hideHeaderFooterRoutes = ["/cart", "/login", "/signup"];
   const shouldHideHeaderFooter = hideHeaderFooterRoutes.includes(
     location.pathname
   );
@@ -47,6 +49,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/c/:category" element={<Categories/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<Signup/>} />
       </Routes>
       {!shouldHideHeaderFooter && <Footer />}
     </>

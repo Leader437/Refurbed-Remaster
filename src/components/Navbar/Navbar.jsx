@@ -39,7 +39,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4 text-custom-pri">
-            <Link to="/">
+            <Link to="/login">
               <CiUser className="text-xl cursor-pointer hover:text-custom-pri-light" />
             </Link>
             <div className="relative">

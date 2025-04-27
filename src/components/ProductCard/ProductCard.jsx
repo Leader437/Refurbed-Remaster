@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
         />
       </div>
       <div className="p-4 text-left">
-        <h3 className="text-lg font-medium">{product.name}</h3>
+        <h3 className="text-base md:text-lg font-medium">{product.name}</h3>
         <p className="text-green-700 font-semibold text-md mt-1">
           €{product.currentPrice.toFixed(2)}
         </p>
