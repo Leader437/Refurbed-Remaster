@@ -21,7 +21,8 @@ const Navbar = () => {
           <div className="flex items-center gap-6 text-custom-pri font-normal text-sm">
             <Link to="/products" className="hover:text-custom-pri-light">products</Link>
             <Link to="/" className="hover:text-custom-pri-light">Sell</Link>
-            <Link to="/" className="hover:text-custom-pri-light">Help</Link>
+            <Link to="/account" className="hover:text-custom-pri-light">Account</Link>
+            {/* <Link to="/" className="hover:text-custom-pri-light">Help</Link> */}
           </div>
         </div>
 
