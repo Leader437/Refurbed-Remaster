@@ -16,6 +16,8 @@ import Categories from "./pages/Categories/Categories";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import OrderTracking from "./pages/OrderTracking/OrderTracking";
+import Blog from "./pages/Blog/Blog";
+import Account from "./pages/Account/Account";
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +55,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/order-tracking" element={<OrderTracking />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/account" element={<Account />}/>
       </Routes>
       {!shouldHideHeaderFooter && <Footer />}
     </>

@@ -69,9 +69,11 @@ export default function Cart() {
             <h2 className="text-2xl text-custom-dark-text font-semibold mb-6">
               Your cart is currently empty
             </h2>
-            <button className="bg-custom-pri text-white px-8 py-3 rounded-md hover:bg-custom-pri-light transition">
-              Continue shopping
-            </button>
+            <Link to="/products">
+              <button className="bg-custom-pri-light text-white px-8 py-3 rounded-md hover:bg-custom-pri transition">
+                Continue shopping
+              </button>
+            </Link>
           </main>
         )}
 

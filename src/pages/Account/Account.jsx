@@ -1,16 +1,16 @@
 import React from "react";
-import DeliveryStatus from "../../components/DeliveryStatus/DeliveryStatus";
+import AccountOptions from "../../components/AccountOptions/AccountOptions";
 import RecommendedForYou from "../../components/RecommendedForYou/RecommendedForYou";
 import NewsLetter from "../../components/NewsLetter/NewsLetter";
 
-const OrderTracking = () => {
+const Account = () => {
   return (
     <>
-      <DeliveryStatus />
+      <AccountOptions />
       <RecommendedForYou />
       <NewsLetter />
     </>
   );
 };
 
-export default OrderTracking;
+export default Account;

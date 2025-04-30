@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { FadeUpAll } from "../../animations/gsapAnimations";
 import { Link } from "react-router-dom";
 
 export default function Login() {
@@ -6,25 +7,31 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    FadeUpAll(".fade-up");
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col justify-center bg-white text-custom-dark-text">
       <div className="flex flex-col min-h-[90dvh] justify-center items-center px-4 py-12">
         <div className="w-full max-w-sm space-y-8">
           <Link to="/signup">
-            <button className="w-full border border-custom-pri-light text-custom-pri-light font-semibold py-3 rounded-md transition">
+            <button className=" w-full border border-custom-pri-light text-custom-pri-light font-semibold py-3 rounded-md transition">
               Sign-up
             </button>
           </Link>
 
-          <div className="flex items-center my-8">
-            <div className="flex-grow h-px bg-gray-300"></div>
-            <span className="mx-4 text-gray-700 font-semibold">
-              Do you have an account?
-            </span>
-            <div className="flex-grow h-px bg-gray-300"></div>
+          <div className="fade-up space-y-8">
+            <div className=" flex items-center my-8">
+              <div className="flex-grow h-px bg-gray-300"></div>
+              <span className="mx-4 text-gray-700 font-semibold">
+                Do you have an account?
+              </span>
+              <div className="flex-grow h-px bg-gray-300"></div>
+            </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="fade-up space-y-6">
             <h2 className="text-2xl font-bold text-gray-800">Login</h2>
 
             <form action="">
@@ -74,7 +81,11 @@ export default function Login() {
               </div>
             </form>
 
-            <input type="submit" value="Login" className="w-full bg-custom-pri text-white font-semibold py-3 rounded-md hover:bg-[#231d5e] cursor-pointer transition" />
+            <input
+              type="submit"
+              value="Login"
+              className="w-full bg-custom-pri text-white font-semibold py-3 rounded-md hover:bg-[#231d5e] cursor-pointer transition"
+            />
           </div>
 
           <div className="flex items-center my-8">

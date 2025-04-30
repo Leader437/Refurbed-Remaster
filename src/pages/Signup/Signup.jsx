@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { FadeUpAll } from "../../animations/gsapAnimations";
 import { Link } from "react-router-dom";
 
 export default function Signup() {
@@ -26,19 +27,23 @@ export default function Signup() {
     }
   };
 
+  useEffect(() => {
+    FadeUpAll(".fade-up");
+  }, []);
+
   return (
     <>
       <div className="flex items-center justify-center min-h-[95dvh] bg-white text-custom-dark-text px-4">
         <div className="max-w-[400px] py-12 w-full">
-          <p className="text-gray-600 text-lg mb-8">
+          <p className="fade-up text-gray-600 text-lg mb-8">
             <span className="font-semibold">Are you new on refurbed?</span>{" "}
             Sign-up now and create your own account.
           </p>
 
-          <h3 className="text-xl font-bold mb-4">Sign-up</h3>
+          <h3 className="fade-up text-xl font-bold mb-4">Sign-up</h3>
 
           <form>
-            <div className="mb-6">
+            <div className="fade-up mb-6">
               <label
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700 mb-1"
@@ -109,7 +114,10 @@ export default function Signup() {
                   />
                 </div>
                 <div className="">
-                  <label htmlFor="newsletter" className="flex items-center gap-4">
+                  <label
+                    htmlFor="newsletter"
+                    className="flex items-center gap-4"
+                  >
                     <input
                       id="newsletter"
                       name="checked"
@@ -153,16 +161,18 @@ export default function Signup() {
             )}
 
             {step === 1 && (
-              <button
-                onClick={handleContinue}
-                className="w-full bg-[#2f2673] text-white font-semibold py-3 rounded-md text-lg hover:bg-[#241d5c] transition"
-              >
-                Continue
-              </button>
+              <div className="fade-up">
+                <button
+                  onClick={handleContinue}
+                  className="fade-up w-full bg-[#2f2673] text-white font-semibold py-3 rounded-md text-lg hover:bg-[#241d5c] transition"
+                >
+                  Continue
+                </button>
+              </div>
             )}
           </form>
 
-          <div className="flex items-center my-8">
+          <div className="fade-up flex items-center my-8">
             <hr className="flex-grow border-t border-gray-300" />
             <span className="mx-4 text-gray-800 font-semibold">
               Already have an account?
@@ -170,14 +180,16 @@ export default function Signup() {
             <hr className="flex-grow border-t border-gray-300" />
           </div>
 
-          <Link to="/login">
-            <button
-              type="button"
-              className="w-full border border-custom-pri-light text-custom-pri-light font-semibold py-3 rounded-md text-lg transition"
-            >
-              Login
-            </button>
-          </Link>
+          <div className="fade-up">
+            <Link to="/login">
+              <button
+                type="button"
+                className="w-full border border-custom-pri-light text-custom-pri-light font-semibold py-3 rounded-md text-lg transition"
+              >
+                Login
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
       <footer className="text-sm text-white mt-auto bg-custom-pri py-6 flex flex-wrap justify-center gap-6">
